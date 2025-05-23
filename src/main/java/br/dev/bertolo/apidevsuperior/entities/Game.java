@@ -15,10 +15,12 @@ public class Game {
     @Column(name = "game_year") // Devido a year ser palavra reservada do SQL
     private Integer year;
     private String genre;
-    private String platform;
+    private String platforms;
     private Double score;
     private String imgUrl;
     private String shortDescription;
+
+    @Column(columnDefinition = "TEXT") //Mapeando para ser do tipo texto no banco para aceitar mais caracteres
     private String longDescription;
 
     public Game() {}
@@ -28,7 +30,7 @@ public class Game {
         this.title = title;
         this.year = year;
         this.genre = genre;
-        this.platform = platform;
+        this.platforms = platform;
         this.score = score;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
@@ -67,12 +69,12 @@ public class Game {
         this.genre = genre;
     }
 
-    public String getPlatform() {
-        return platform;
+    public String getPlatforms() {
+        return platforms;
     }
 
-    public void setPlatform(String platform) {
-        this.platform = platform;
+    public void setPlatforms(String platform) {
+        this.platforms = platform;
     }
 
     public Double getScore() {
