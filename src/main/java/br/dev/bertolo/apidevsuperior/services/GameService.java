@@ -3,6 +3,7 @@ package br.dev.bertolo.apidevsuperior.services;
 import br.dev.bertolo.apidevsuperior.dto.GameDTO;
 import br.dev.bertolo.apidevsuperior.dto.GameMinDTO;
 import br.dev.bertolo.apidevsuperior.entities.Game;
+import br.dev.bertolo.apidevsuperior.projections.GameMinProjection;
 import br.dev.bertolo.apidevsuperior.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,5 +33,13 @@ public class GameService {
     public GameDTO findById(Long id) {
         Game entity = this.gameRepository.findById(id).get();
         return new GameDTO(entity);
+    }
+
+
+    @Transactional(readOnly = true)
+    public List<GameMinDTO> findByList(Long listId) {
+        List<GameMinProjection> result = this.gameRepository.searchByList(listId);
+        List<GameMinDTO> dto = result.stream().map(GameMinDTO::new).toList();
+        return dto;
     }
 }

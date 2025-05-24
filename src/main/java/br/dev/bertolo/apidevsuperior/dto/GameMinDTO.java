@@ -1,6 +1,7 @@
 package br.dev.bertolo.apidevsuperior.dto;
 
 import br.dev.bertolo.apidevsuperior.entities.Game;
+import br.dev.bertolo.apidevsuperior.projections.GameMinProjection;
 
 public class GameMinDTO {
     private Long id;
@@ -15,6 +16,14 @@ public class GameMinDTO {
         this.year = entity.getYear();
         this.imgUrl = entity.getImgUrl();
         this.longDescription = entity.getShortDescription();
+    }
+
+    public GameMinDTO(GameMinProjection projection) {
+        this.id = projection.getId();
+        this.title = projection.getTitle();
+        this.year = projection.getYear();
+        this.imgUrl = projection.getImgUrl();
+        this.longDescription = projection.getShortDescription();
     }
 
     public Long getId() {
