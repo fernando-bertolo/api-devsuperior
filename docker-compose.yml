@@ -28,6 +28,17 @@ services:
     networks:
       - dev-network
 
+  api-devsuperior:
+    build: .
+    image: api-devsuperior:1.0
+    ports:
+      - "8080:8080"
+    restart: always
+    networks:
+      - dev-network
+    depends_on:
+      - pg-docker
+
 networks:
   dev-network:
     driver: bridge
