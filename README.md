@@ -23,6 +23,20 @@ Durante o intensivão, foram abordados conceitos fundamentais e práticos como:
 - Deploy de aplicações Spring Boot com Railway
 - Organização em camadas e boas práticas de código limpo
 
+
+
+## 🔗 Endpoints da API
+
+Abaixo estão listados os principais endpoints disponíveis no projeto:
+
+### 🎮 Games
+
+- `GET /games` – Lista todos os games
+- `GET /games/{id}` – Retorna os dados de um game específico
+- `GET /lists` – Retorna os dados de todas as listas de games
+- `GET /lists/{id}/games}` – Retorna os dados de todos os games de uma lista específica
+
+
 ## 🛠️ Como rodar o projeto localmente
 
 1. Clone o repositório:
